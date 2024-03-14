@@ -49,7 +49,7 @@ class DetailPage extends StatelessWidget {
             Text(
               desc,
               textAlign: TextAlign.justify,
-              style: TextStyle(fontSize: 20),
+              style: TextStyle(fontSize: 12),
             ),
             Spacer(),
             ElevatedButton(onPressed: () {}, child: Text('+ Cart'))
