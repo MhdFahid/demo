@@ -19,10 +19,10 @@ class LoginApi extends GetxController {
     try {
       var response = await http.post(
           body: ({
-            // 'username': username.text,
-            // 'password': password.text,
-            'username': "mor_2314",
-            'password': "83r5^_",
+            'username': username.text,
+            'password': password.text,
+            // 'username': "mor_2314",
+            // 'password': "83r5^_",
           }),
           Uri.parse(loginUrl));
 
