@@ -28,17 +28,26 @@ class LoginPage extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            TextField(
-              controller: loginApi.password,
-              decoration: const InputDecoration(
-                  hintText: 'Password', border: OutlineInputBorder()),
+            Obx(
+              () => TextField(
+                obscureText: !loginApi.obscureText.value,
+                controller: loginApi.password,
+                decoration: const InputDecoration(
+                    hintText: 'Password', border: OutlineInputBorder()),
+              ),
             ),
             const SizedBox(
               height: 10,
             ),
             Row(
               children: [
-                Checkbox(value: false, onChanged: (valu) {}),
+                Obx(
+                  () => Checkbox(
+                      value: loginApi.obscureText.value,
+                      onChanged: (valu) {
+                        loginApi.obscureText.value = valu!;
+                      }),
+                ),
                 const Text("Remember"),
               ],
             ),

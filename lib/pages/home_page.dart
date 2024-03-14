@@ -7,15 +7,17 @@ import 'package:get/get.dart';
 
 // ignore: must_be_immutable
 class HomePage extends StatelessWidget {
-  RxList<Product> productList = <Product>[].obs;
-
   DocApi docApi = Get.put(DocApi());
 
-  getProductList() async {
+  HomePage({super.key});
+  RxList<Product> productList = <Product>[].obs;
+  void getPatientList() async {
     productList.value = await docApi.getData();
   }
 
-  HomePage({super.key});
+  // getProductList() async {
+  //   productList = await docApi.getData();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +25,8 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Products'),
       ),
-      body: GetBuilder<DocApi>(builder: (context) {
-        getProductList();
+      body: Obx(() {
+        getPatientList();
         return GridView.builder(
           itemCount: productList.length,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

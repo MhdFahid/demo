@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 class LoginApi extends GetxController {
   TextEditingController username = TextEditingController();
   TextEditingController password = TextEditingController();
+  RxBool obscureText = true.obs;
   Future<void> getLogin() async {
     String loginUrl = 'https://fakestoreapi.com/auth/login';
     if (username.text.length < 5 || password.text.length < 5) {
